@@ -6,17 +6,17 @@ export default function Home() {
       {/* Navigation */}
       <nav className="bg-white shadow">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold text-blue-600">Digital Menu</div>
+          <div className="text-2xl font-bold text-red-600 ">Digital Menu</div>
           <div className="flex gap-4">
             <Link
               href="/auth/login"
-              className="px-4 py-2 text-blue-600 hover:text-blue-700 font-medium"
+              className="px-4 py-2 text-red-600  hover:text-red-700 font-medium"
             >
               Sign In
             </Link>
             <Link
               href="/auth/register"
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium"
+              className="px-4 py-2 bg-pink-600 text-white rounded-lg hover:bg-red-700 font-medium"
             >
               Get Started
             </Link>
@@ -35,13 +35,13 @@ export default function Home() {
         <div className="flex gap-4 justify-center">
           <Link
             href="/auth/register"
-            className="px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-bold text-lg"
+            className="px-8 py-4 bg-pink-600 text-white rounded-lg hover:bg-red-700 font-bold text-lg"
           >
             Start Free Trial
           </Link>
           <Link
             href="/auth/login"
-            className="px-8 py-4 bg-white text-blue-600 border-2 border-blue-600 rounded-lg hover:bg-blue-50 font-bold text-lg"
+            className="px-8 py-4 bg-white text-red-600  border-2 border-red-600 rounded-lg hover:bg-blue-50 font-bold text-lg"
           >
             Sign In
           </Link>
@@ -109,15 +109,15 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-blue-600 text-white py-20">
-        <div className="max-w-4xl mx-auto text-center px-4">
+      <section className="bg-pink-600 text-white py-20">
+        <div className="max-w-4xl mx-auto text-center px-4"> 
           <h2 className="text-4xl font-bold mb-6">Ready to go digital?</h2>
           <p className="text-xl mb-8">
             Join hundreds of restaurants already using Digital Menu to serve their customers better.
           </p>
           <Link
             href="/auth/register"
-            className="inline-block px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-gray-100 font-bold text-lg"
+            className="inline-block px-8 py-4 bg-white text-red-600  rounded-lg hover:bg-gray-100 font-bold text-lg"
           >
             Get Started Now
           </Link>

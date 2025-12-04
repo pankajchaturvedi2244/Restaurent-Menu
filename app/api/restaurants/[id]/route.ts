@@ -4,8 +4,10 @@ import { getSession } from '@/lib/auth/session';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } | Promise<{ id: string }> }
 ) {
+    const params = await context.params; // ← Fix for Next.js params Promise bug
+
   try {
     const session = await getSession();
     if (!session) {
@@ -42,8 +44,10 @@ export async function GET(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+   context: { params: { id: string } | Promise<{ id: string }> }
 ) {
+    const params = await context.params; // ← Fix for Next.js params Promise bug
+
   try {
     const session = await getSession();
     if (!session) {

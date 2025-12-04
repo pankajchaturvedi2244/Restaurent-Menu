@@ -4,9 +4,11 @@ import { getSession } from '@/lib/auth/session';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+   context: { params: { id: string } | Promise<{ id: string }> }
 ) {
   try {
+      const params = await context.params; // ← Fix for Next.js params Promise bug
+
     const session = await getSession();
     if (!session) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -14,7 +16,6 @@ export async function GET(
 
     // The `params` object can be a promise in some Next.js configurations.
     const { id: restaurantId } = await params;
-    console.log("restaurantId", restaurantId);
 
     if (!restaurantId) {
       return NextResponse.json({ error: 'Restaurant ID is missing from the URL' }, { status: 400 });

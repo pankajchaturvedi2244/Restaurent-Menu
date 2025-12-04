@@ -40,7 +40,7 @@ export default function PublicMenuPage() {
   const [activeCategory, setActiveCategory] = useState<string>('');
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const categoryRefsMap = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const categoryRefsMap = useRef<{ [key: string]: HTMLElement | null }>({});
 
   const fetchMenu = useCallback(async () => {
     try {
