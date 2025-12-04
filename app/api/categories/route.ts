@@ -1,35 +1,36 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
-import { getSession } from '@/lib/auth/session';
-import { CategorySchema } from '@/lib/utils/validation';
+import { NextRequest, NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
+import { getSession } from "@/lib/auth/session";
+import { CategorySchema } from "@/lib/utils/validation";
 
+// CREATE CATEGORY
 export async function POST(request: NextRequest) {
   try {
     const session = await getSession();
     if (!session) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     const body = await request.json();
-    const validationResult = CategorySchema.safeParse(body);
 
-    if (!validationResult.success) {
+    const validation = CategorySchema.safeParse(body);
+    if (!validation.success) {
       return NextResponse.json(
-        { error: 'Validation failed', details: validationResult.error.errors },
+        { error: "Validation failed", details: validation.error.errors },
         { status: 400 }
       );
     }
 
-    const { name } = validationResult.data;
+    const { name } = validation.data;
     const { restaurantId } = body;
 
-    // Verify ownership
+    // Check ownership
     const restaurant = await prisma.restaurant.findUnique({
       where: { id: restaurantId },
     });
 
     if (!restaurant || restaurant.ownerId !== session.userId) {
-      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 
     const category = await prisma.category.create({
@@ -41,35 +42,36 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(category, { status: 201 });
   } catch (error) {
-    console.error('Error creating category:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    console.error("Error creating category:", error);
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
 
+// GET CATEGORIES
 export async function GET(request: NextRequest) {
   try {
     const session = await getSession();
     if (!session) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
     const { searchParams } = new URL(request.url);
-    const restaurantId = searchParams.get('restaurantId');
+    const restaurantId = searchParams.get("restaurantId");
 
     if (!restaurantId) {
       return NextResponse.json(
-        { error: 'restaurantId query parameter is required' },
+        { error: "restaurantId query parameter is required" },
         { status: 400 }
       );
     }
 
-    // Verify ownership
+    // Check ownership
     const restaurant = await prisma.restaurant.findUnique({
       where: { id: restaurantId },
     });
 
     if (!restaurant || restaurant.ownerId !== session.userId) {
-      return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
     }
 
     const categories = await prisma.category.findMany({
@@ -79,7 +81,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(categories);
   } catch (error) {
-    console.error('Error fetching categories:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    console.error("Error fetching categories:", error);
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
