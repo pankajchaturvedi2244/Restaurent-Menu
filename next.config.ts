@@ -23,6 +23,7 @@ const nextConfig: NextConfig = {
       'images.ctfassets.net',
       'd3c9jyj3w509b2.cloudfront.net',
       'bing.com',
+      'images.unsplash.com',
     ],
   },
 };
