@@ -28,10 +28,9 @@ export async function GET(
 
     const dishes = await prisma.dish.findMany({
       where: { restaurantId },
-      include: { categories: true },
+      include: { categories: true  },
     });
 
-    console.log('PUBLIC MENU API - categories:', categories.length, 'dishes:', dishes.length);
 
     return NextResponse.json({
       restaurant,

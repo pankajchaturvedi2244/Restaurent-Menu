@@ -29,22 +29,7 @@ What you'll learn:
 **Start here when you're ready to deploy**
 → Read: [`DEPLOYMENT.md`](./DEPLOYMENT.md)
 
-What you'll learn:
-- Deployment to Vercel (recommended)
-- Docker deployment
-- Self-hosted on Linux/Ubuntu
-- Email service configuration
-- Database backups and monitoring
 
-### ✅ Implementation Details
-**Start here to see what was built**
-→ Read: [`COMPLETION_SUMMARY.md`](./COMPLETION_SUMMARY.md) or [`IMPLEMENTATION_CHECKLIST.md`](./IMPLEMENTATION_CHECKLIST.md)
-
-What you'll learn:
-- All features that were implemented
-- File structure overview
-- Testing procedures
-- What's production-ready
 
 ---
 
@@ -107,13 +92,7 @@ digital-menu/
 4. Deploy: Push to production
 5. Monitor: Setup backups and monitoring
 
-### Path 4: "Show Me What Was Built"
-1. Read: IMPLEMENTATION_CHECKLIST.md (10 minutes)
-2. Read: COMPLETION_SUMMARY.md (10 minutes)
-3. Explore: Code files mentioned
-4. Understand: Each feature's implementation
 
----
 
 ## 🎓 Learning Resources by Topic
 
