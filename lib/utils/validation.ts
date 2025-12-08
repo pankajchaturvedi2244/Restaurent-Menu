@@ -26,6 +26,8 @@ export const DishSchema = z.object({
   image: z.string().url('Image must be a valid URL'),
   spiceLevel: z.number().min(0).max(5).optional(),
   categories: z.array(z.string()).min(1, 'At least one category is required'),
+  type: z.enum(['veg', 'non-veg']).optional(),
+  sellingRate : z.number().min(1, 'Selling rate must be a positive number'),
 });
 
 export type RegisterInput = z.infer<typeof RegisterSchema>;

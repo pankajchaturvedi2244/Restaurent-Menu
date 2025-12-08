@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { name, description, image, spiceLevel, categories } = validationResult.data;
+    const { name, description, image, spiceLevel, categories , type, sellingRate} = validationResult.data;
     const { restaurantId } = body;
 
     // Verify ownership
@@ -39,6 +39,8 @@ export async function POST(request: NextRequest) {
         description,
         image,
         spiceLevel: spiceLevel || null,
+        type: type || "veg",
+        sellingRate: sellingRate,
         restaurantId,
         categories: {
           create: categories.map(categoryId => ({
@@ -48,6 +50,7 @@ export async function POST(request: NextRequest) {
       },
       include: { categories: true },
     });
+    
 
     return NextResponse.json(dish, { status: 201 });
   } catch (error) {
