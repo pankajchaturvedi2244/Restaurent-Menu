@@ -36,7 +36,7 @@ A complete full-stack web application for restaurants to create, manage, and sha
 - **Styling**: Tailwind CSS 4
 - **Validation**: Zod
 - **QR Code Generation**: qrcode library
-- **Email Service**: Nodemailer
+- **Email Service**: Mailtrap (Refer Readme.md)
 - **Image Optimization**: Next.js Image component
 
 ## 🚀 Quick Start
