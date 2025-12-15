@@ -18,17 +18,6 @@ What you'll learn:
 **Start here if you want to understand the entire system**
 → Read: [`PROJECT_DOCUMENTATION.md`](./PROJECT_DOCUMENTATION.md)
 
-What you'll learn:
-- Complete feature overview
-- Database schema and relationships
-- All API endpoints
-- Security implementation
-- How everything works together
-
-### 🚢 Deployment Guide (varies)
-**Start here when you're ready to deploy**
-→ Read: [`DEPLOYMENT.md`](./DEPLOYMENT.md)
-
 
 
 ---
